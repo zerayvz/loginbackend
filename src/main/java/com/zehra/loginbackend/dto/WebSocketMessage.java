@@ -1,18 +1,11 @@
-package com.zehra.loginbackend.model;
+package com.zehra.loginbackend.dto;
 
 public class WebSocketMessage {
-    private String type; // JOIN veya SELECT
+    private String type;         // JOIN, SELECT, RESET gibi
     private String username;
     private String card;
-
-    public WebSocketMessage() {
-    }
-
-    public WebSocketMessage(String type, String username, String card) {
-        this.type = type;
-        this.username = username;
-        this.card = card;
-    }
+    private String reason;
+    private String roomId;
 
     public String getType() {
         return type;
@@ -36,5 +29,21 @@ public class WebSocketMessage {
 
     public void setCard(String card) {
         this.card = card;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
+    public String getRoomId() {
+        return roomId;
+    }
+
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
     }
 }
