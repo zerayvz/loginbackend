@@ -1,11 +1,22 @@
 package com.zehra.loginbackend.dto;
 
+import java.util.Map;
+
 public class WebSocketMessage {
-    private String type;         // JOIN, SELECT, RESET gibi
+
+    private String type;       // JOIN, SELECT, RESET, REVEAL vs.
     private String username;
     private String card;
     private String reason;
     private String roomId;
+    private String to;         // Davet edilen kullanıcı
+
+    // ✅ REVEAL mesajı için eklenen alanlar:
+    private String task;       // Görev başlığı (örneğin: "Login sayfası")
+    private Map<String, Integer> votes; // Kullanıcı -> Kart puanı
+    private Map<String, String> explanations; // Kullanıcı -> Açıklama
+
+    // 🔽 Getter & Setter'lar
 
     public String getType() {
         return type;
@@ -45,5 +56,37 @@ public class WebSocketMessage {
 
     public void setRoomId(String roomId) {
         this.roomId = roomId;
+    }
+
+    public String getTo() {
+        return to;
+    }
+
+    public void setTo(String to) {
+        this.to = to;
+    }
+
+    public String getTask() {
+        return task;
+    }
+
+    public void setTask(String task) {
+        this.task = task;
+    }
+
+    public Map<String, Integer> getVotes() {
+        return votes;
+    }
+
+    public void setVotes(Map<String, Integer> votes) {
+        this.votes = votes;
+    }
+
+    public Map<String, String> getExplanations() {
+        return explanations;
+    }
+
+    public void setExplanations(Map<String, String> explanations) {
+        this.explanations = explanations;
     }
 }
